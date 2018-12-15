@@ -1,0 +1,25 @@
+﻿@model WebApplication10.Models.Students
+
+<h2>Students That Passed</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+@section scripts{  
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")  
+}  
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
+
+<div class="form-group">
+    @{
+        foreach (var item in ViewBag.FirstName as IEnumerable<SelectListItem>)
+        {
+            @Ajax.ActionLink(@item.Text, "UpdateAjax", "Students", new { id = @item.Value }, new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "listId"
+            });
+            @:<br />
+        }
+    }
+    <div id="listId"></div>
+</div>
