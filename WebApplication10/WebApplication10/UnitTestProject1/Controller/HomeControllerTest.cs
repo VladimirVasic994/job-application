@@ -23,29 +23,5 @@ namespace UnitTestProject1.Controller
 
             Assert.IsNotNull(result);
         }
-
-        [TestMethod]
-        public void Index1()
-        {
-            SchoolContext co = new SchoolContext();
-            co.Database.Delete();
-
-            Database.SetInitializer(new SchoolInitializer());
-
-            var acctalStudents=co.Students.ToList();
-            CollectionAssert.AreEqual(acctalStudents, SchoolInitializer.students);
-
-            Assert.IsTrue(acctalStudents[0].Equals(SchoolInitializer.students[0]));
-
-            HomeController controller = new HomeController();
-
-            ViewResult result = controller.Index() as ViewResult;
-
-            SchoolRepository repository = new SchoolRepository(co);
-
-            repository.checkIfStudenCanEnroll(1, 1, 1);
-
-            Assert.IsNotNull(result);
-        }
     }
 }

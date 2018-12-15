@@ -45,9 +45,11 @@ namespace WebApplication10.Context
             };
             enrollments = new List<Enrollment>
             {
-            new Enrollment{StudentID=1,CourseID=1050,Grade=5,date=DateTime.Parse("2018-5-3")},
-            new Enrollment{StudentID=1,CourseID=2021,Grade=6,date=DateTime.Parse("2018-2-13")},
-            new Enrollment{StudentID=1,CourseID=4022,Grade=7,date=DateTime.Parse("2018-2-13")},
+            new Enrollment{StudentID=1,CourseID=2021,Grade=5,date=DateTime.Parse("2018-2-13")},
+            new Enrollment{StudentID=1,CourseID=2021,Grade=5,date=DateTime.Parse("2018-2-13")},
+            new Enrollment{StudentID=1,CourseID=2021,Grade=5,date=DateTime.Parse("2018-2-13")},
+            new Enrollment{StudentID=1,CourseID=2021,Grade=5,date=DateTime.Parse("2018-2-13")},
+            new Enrollment{StudentID=1,CourseID=2021,Grade=5,date=DateTime.Parse("2018-2-13")},
             new Enrollment{StudentID=2,CourseID=1050,Grade=8,date=DateTime.Parse("2018-2-13")},
             new Enrollment{StudentID=2,CourseID=4022,Grade=9,date=DateTime.Parse("2018-2-13")},
             new Enrollment{StudentID=2,CourseID=1050,Grade=10,date=DateTime.Parse("2018-2-13")},

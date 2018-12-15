@@ -41,6 +41,8 @@ namespace WebApplication10.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
+
+            ViewBag.Instructors = new SelectList(repository.getInstructors(), "ID", "LastName");
             return View();
         }
 
@@ -49,7 +51,7 @@ namespace WebApplication10.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title")] Course course)
+        public ActionResult Create(Course course)
         {
             if (ModelState.IsValid)
             {

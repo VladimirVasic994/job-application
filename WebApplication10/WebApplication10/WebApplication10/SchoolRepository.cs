@@ -25,7 +25,7 @@ namespace WebApplication10
 
             if (pastEnrollments.Where(e => e.StudentID == studentId
                     && e.CourseID == courseId
-                    && e.date.Year == forYear).Count() > 5)
+                    && e.date.Year == forYear).Count() >= 5)
             {
                 return false;
             }

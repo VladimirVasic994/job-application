@@ -51,16 +51,16 @@ namespace WebApplication10.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public PartialViewResult Filter(Instructor instructor, DateTime StartDate,DateTime EndDate)
+        public PartialViewResult Filter(Instructor instructor, DateTime StartDate, DateTime EndDate)
         {
 
-           
+
             var coursesForInstructor = repository.getCoursesForInstructors(instructor.ID);
-            
+
             var studentsThatPassed = repository.getStudentsThatPassed(coursesForInstructor, StartDate, EndDate);
 
 
-            return PartialView("ListOfStudents", studentsThatPassed);
+            return PartialView("ListOfStudents",studentsThatPassed.ToList());
         }
         protected override void Dispose(bool disposing)
         {

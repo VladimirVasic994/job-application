@@ -17,5 +17,21 @@ namespace WebApplication10.Models
 
         public virtual Course Course { get; set; }
         public virtual Students Student { get; set; }
+        public override bool Equals(object obj)
+        {
+            var item = obj as Enrollment;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (CourseID.Equals(item.CourseID) && StudentID.Equals(item.StudentID) && date.Equals(item.date)) 
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

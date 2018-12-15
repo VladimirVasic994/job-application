@@ -15,5 +15,22 @@ namespace WebApplication10.Models
 
         public virtual Instructor Instructor { get; set; }
         public virtual IEnumerable<Enrollment> Enrollments { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Course;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (Title.Equals(item.Title))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

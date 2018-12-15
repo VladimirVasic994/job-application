@@ -13,5 +13,23 @@ namespace WebApplication10.Models
         
 
         public virtual IEnumerable<Course> Courses { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Instructor;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            if (FirstName.Equals(item.FirstName)&&LastName.Equals(item.LastName))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
+
 }
