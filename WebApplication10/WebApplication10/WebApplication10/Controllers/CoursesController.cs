@@ -15,14 +15,14 @@ namespace WebApplication10.Controllers
     {
         private SchoolRepository repository = new SchoolRepository(new SchoolContext());
 
-        // GET: Courses
+
         public ActionResult Index()
         {
             
             return View(repository.getCourses());
         }
 
-        // GET: Courses/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,7 +38,7 @@ namespace WebApplication10.Controllers
             return View(course);
         }
 
-        // GET: Courses/Create
+
         public ActionResult Create()
         {
 
@@ -46,9 +46,7 @@ namespace WebApplication10.Controllers
             return View();
         }
 
-        // POST: Courses/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Course course)
@@ -62,7 +60,7 @@ namespace WebApplication10.Controllers
             return View(course);
         }
 
-        // GET: Courses/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,9 +75,7 @@ namespace WebApplication10.Controllers
             return View(course);
         }
 
-        // POST: Courses/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title")] Course course)
@@ -93,7 +89,7 @@ namespace WebApplication10.Controllers
             return View(course);
         }
 
-        // GET: Courses/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,7 +104,7 @@ namespace WebApplication10.Controllers
             return View(course);
         }
 
-        // POST: Courses/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

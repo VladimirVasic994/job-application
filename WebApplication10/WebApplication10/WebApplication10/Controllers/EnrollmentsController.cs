@@ -15,7 +15,7 @@ namespace WebApplication10.Controllers
     {
         private SchoolRepository repository = new SchoolRepository(new SchoolContext());
 
-        // GET: Enrollments
+
         public ActionResult Index()
         {
 
@@ -24,7 +24,7 @@ namespace WebApplication10.Controllers
             return View(enrollments.ToList());
         }
 
-        // GET: Enrollments/Details/5
+ 
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,7 +40,7 @@ namespace WebApplication10.Controllers
             return View(enrollment);
         }
 
-        // GET: Enrollments/Create
+ 
         public ActionResult Create()
         {
             
@@ -50,10 +50,7 @@ namespace WebApplication10.Controllers
         }
 
         
-
-        // POST: Enrollments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnrollmentID,StudentID,CourseID,date,Grade")] Enrollment enrollment)
@@ -70,7 +67,7 @@ namespace WebApplication10.Controllers
 
             ViewBag.ERRORMSG = "Prijavili ste vise od 5 puta isti ispit ove godine!!!";
             ViewBag.CourseID = new SelectList(repository.getCourses(), "ID", "Title", enrollment.CourseID);
-            ViewBag.StudentID = new SelectList(repository.getCourses(), "ID", "FirstName", enrollment.StudentID);
+            ViewBag.StudentID = new SelectList(repository.getStudents(), "ID", "FirstName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -79,7 +76,7 @@ namespace WebApplication10.Controllers
             return repository.checkIfStudenCanEnroll(enrollment.StudentID, enrollment.CourseID, enrollment.date.Year);
         }
 
-        // GET: Enrollments/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,9 +93,7 @@ namespace WebApplication10.Controllers
             return View(enrollment);
         }
 
-        // POST: Enrollments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EnrollmentID,StudentID,CourseID,date,Grade")] Enrollment enrollment)
@@ -114,7 +109,7 @@ namespace WebApplication10.Controllers
             return View(enrollment);
         }
 
-        // GET: Enrollments/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -129,7 +124,7 @@ namespace WebApplication10.Controllers
             return View(enrollment);
         }
 
-        // POST: Enrollments/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

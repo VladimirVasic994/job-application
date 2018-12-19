@@ -16,7 +16,7 @@ namespace WebApplication10.Controllers
         private SchoolRepository repository = new SchoolRepository(new SchoolContext());
 
 
-        // GET: Instructors
+
         public ActionResult Index()
         {
             repository.getInstructors();
@@ -24,7 +24,7 @@ namespace WebApplication10.Controllers
             return View(instructors);
         }
 
-        // GET: Instructors/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)

@@ -15,13 +15,12 @@ namespace WebApplication10.Controllers
     {
         private SchoolRepository repository = new SchoolRepository(new SchoolContext());
 
-        // GET: Students
         public ActionResult Index()
         {
             return View(repository.getStudents());
         }
 
-        // GET: Students/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -59,7 +58,7 @@ namespace WebApplication10.Controllers
         }
 
 
-        // GET: Students/Delete/5
+        
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -74,7 +73,7 @@ namespace WebApplication10.Controllers
             return View(students);
         }
 
-        // POST: Students/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
