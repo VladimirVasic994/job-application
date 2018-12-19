@@ -51,7 +51,7 @@ namespace WebApplication10.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public PartialViewResult Filter(Instructor instructor, DateTime StartDate, DateTime EndDate)
+        public ActionResult Filter(Instructor instructor, DateTime StartDate, DateTime EndDate)
         {
 
 
@@ -60,7 +60,11 @@ namespace WebApplication10.Controllers
             var studentsThatPassed = repository.getStudentsThatPassed(coursesForInstructor, StartDate, EndDate);
 
 
-            return PartialView("ListOfStudents",studentsThatPassed.ToList());
+            return View("ListOfStudents",studentsThatPassed);
+        }
+        public ActionResult ListOfStudents(IEnumerable<Enrollment> enrollments)
+        {
+            return View(enrollments);
         }
         protected override void Dispose(bool disposing)
         {
